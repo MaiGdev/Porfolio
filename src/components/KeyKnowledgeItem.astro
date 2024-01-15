@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string;
+  text: string;
+}
+
+const { title, text } = Astro.props;
+---
+
+<li>
+  <span class="text-[#0F5780] font-bold dark:text-[#D3B76B]">{`${title}`}</span>
+  {`${text}`}
+</li>

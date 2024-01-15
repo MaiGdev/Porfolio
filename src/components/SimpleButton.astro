@@ -1,0 +1,20 @@
+---
+interface Props {
+  text: string;
+  bg_color: string;
+  text_color: string;
+  dark_bg_color: string;
+  dark_text_color: string;
+}
+
+const { text, bg_color, text_color, dark_bg_color, dark_text_color } =
+  Astro.props;
+---
+
+<button
+  class={`text-base mg:text-xl text-[${text_color}] font-semibold p-3 mg:p-[14px]  flex rounded-[10px] items-center justify-center gap-[14px] bg-[${bg_color}] hover:bg-opacity-80 dark:bg-[${dark_bg_color}] dark:text-[${dark_text_color}]`}
+  style="border: 2.409px solid #DEE4ED;"
+>
+  <slot />
+  {text}
+</button>

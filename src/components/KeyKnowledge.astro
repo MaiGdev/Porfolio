@@ -1,0 +1,36 @@
+---
+import KeyKnowledgeItem from "./KeyKnowledgeItem.astro";
+
+const Knowledge = [
+  {
+    title: "Diseño y Prototipado:",
+    text: "Utilizo Figma para dar vida a ideas y conceptos, asegurándome de que cada proyecto           tenga una base visual sólida.",
+  },
+  {
+    title: "Desarrollo Backend:",
+    text: "Mi experiencia incluye C# con ASP.NET y Entity Framework, así como PHP y ORM como Prisma para la creación de APIs robustas.",
+  },
+  {
+    title: "Desarrollo Fontend:",
+    text: "Me desenvuelvo con destreza en JavaScript y sus frameworks, incluyendo React, Angulary Astro, asegurando experiencias de usuario intuitivas y atractivas.",
+  },
+  {
+    title: "Diseño y Prototipado:",
+    text: "Utilizo Figma para dar vida a ideas y conceptos, asegurándome de que cada proyecto           tenga una base visual sólida.",
+  },
+  {
+    title: "Diseño y Prototipado:",
+    text: "Utilizo Figma para dar vida a ideas y conceptos, asegurándome de que cada proyecto           tenga una base visual sólida.",
+  },
+];
+---
+
+<ul
+  class="list-disc font-normal flex flex-col gap-4 mb-8 ml-5 text-slate-700 dark:text-gray-300 text-md"
+>
+  {
+    Knowledge.map(({ title, text }) => (
+      <KeyKnowledgeItem title={title} text={text} />
+    ))
+  }
+</ul>

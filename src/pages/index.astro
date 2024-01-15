@@ -1,0 +1,275 @@
+---
+import StyledButton from "../components/StyledButton.astro";
+import SimpleButton from "../components/SimpleButton.astro";
+import Input from "../components/Input.astro";
+import Layout from "../layouts/Layout.astro";
+import FileUser from "../components/icons/FileUser.astro";
+import Linkedin from "../components/icons/Linkedin.astro";
+import MailFoward from "../components/icons/MailFoward.astro";
+import Mail from "../components/icons/Mail.astro";
+import BriefCase from "../components/icons/BriefCase.astro";
+import GitHub from "../components/icons/GitHub.astro";
+import Experience from "../components/Experience.astro";
+import CodeIcon from "../components/icons/CodeIcon.astro";
+import ReactIcon from "../components/icons/ReactIcon.astro";
+import TailwindIcon from "../components/icons/TailwindIcon.astro";
+import KeyKnowledge from "../components/KeyKnowledge.astro";
+import AtIcon from "../components/icons/AtIcon.astro";
+import Copy from "../components/icons/Copy.astro";
+import Send from "../components/icons/Send.astro";
+---
+
+<Layout title="Maikel Gómez - Portfolio">
+  <main>
+    <section id="top" class="flex flex-col items-center gap-10 md:flex-row">
+      <div>
+        <img
+          src="/profile.png"
+          alt="Maikel Gómez"
+          class="size-40 shadow-lg blackFillProfileImage"
+          style="border: 4px solid #71829B; border-radius: 54px; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);"
+        />
+
+        <img
+          src="/profileInv.png"
+          alt="Maikel Gómez"
+          class="size-40 shadow-lg whiteFillProfileImage"
+          style="border: 4px solid #71829B; border-radius: 54px; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);"
+        />
+      </div>
+
+      <div class="text-center md:text-left">
+        <h1
+          class="text-2xl md:text-4xl font-bold text-[#4B596D] dark:text-[#DEE4ED]"
+        >
+          Maikel Gómez
+        </h1>
+        <p class="text-base md:text-lg text-[#8F98A4] dark:text-[#C6D0DC]">
+          Apasionado del desarrollo y diseño de aplicaciones web.
+        </p>
+
+        <div class="mt-4 flex flex-col sm:flex-row gap-[10px]">
+          <StyledButton
+            text="Resume"
+            bg_color="#ECECFF"
+            text_color="#807EE3"
+            dark_bg_color="#807EE3"
+            dark_text_color="#ECECFF"
+          >
+            <FileUser width="13px" height="15px" />
+          </StyledButton>
+          <StyledButton
+            text="Linkedin"
+            bg_color="#EAF8FF"
+            text_color="#0E76A8"
+            dark_bg_color="#0E76A8"
+            dark_text_color="#EAF8FF"
+          >
+            <Linkedin width="15px" height="15px" />
+          </StyledButton>
+          <StyledButton
+            text="mgomezmu@gmail.com"
+            bg_color="#DEE4ED"
+            text_color="#4B596D"
+            dark_bg_color="#4B596D"
+            dark_text_color="#DEE4ED"
+          >
+            <MailFoward width="18px" height="18px" />
+          </StyledButton>
+        </div>
+      </div>
+    </section>
+
+    <hr
+      class="border border-dotted border-gray-300 dark:border-[#8F98A4] rounded-md mt-14 mb-12"
+    />
+
+    <!-- <section id="experiencia">
+      <div class="flex gap-2 items-center mb-5">
+        <BriefCase fill="#4B596D" width="27px" height="26px" />
+        <h2 class="text-2xl font-bold text-[#4B596D]">Experiencia laboral</h2>
+      </div>
+      <Experience />
+    </section> -->
+
+    <section>
+      <div
+        class="flex gap-2 items-center mb-5 text-[#4B596D] dark:text-gray-100"
+      >
+        <BriefCase width="27px" height="26px" />
+        <h2 class="text-2xl font-bold text-[#4B596D] dark:text-gray-100">
+          Sobre mi
+        </h2>
+      </div>
+
+      <p
+        class="text-base sm:text-lg text-[#384247] font-medium text-pretty dark:text-slate-200"
+      >
+        Estudiante apasionado de Ingeniería del Software, a punto de completar
+        su bachillerato, con enfoque en el emocionante mundo del diseño y
+        desarrollo de aplicaciones web.
+      </p>
+
+      <h3
+        class="text-lg text-[#4B596D] font-bold pt-2 mb-4 dark:text-[#C6D0DC]"
+      >
+        Conocimientos clave:
+      </h3>
+
+      <KeyKnowledge />
+    </section>
+
+    <section id="proyectos" class="mb-8">
+      <div
+        class="flex gap-2 items-center mb-5 text-[#4B596D] dark:text-gray-100"
+      >
+        <CodeIcon width="27px" height="26px" />
+        <h2 class="text-2xl font-bold text-[#4B596D] dark:text-gray-100">
+          Proyectos
+        </h2>
+      </div>
+
+      <article>
+        <h3
+          class="text-xl md:text-2xl text-[#8F5C23] font-bold pb-1 dark:text-[#D3B76B]"
+        >
+          DentAid - Aplicación web para la gestión de citas
+        </h3>
+        <p
+          class="text-base md:text-lg text-[#384247] font-medium text-pretty dark:text-[#C6D0DC]"
+        >
+          Creado con React, PHP y MySQL esta pagina web gestiona citas para una
+          clinica dental.
+        </p>
+
+        <div class="mt-2 box_image">
+          <!--           <img
+            loading="lazy"
+            class="rounded shadow-2xl shadow-white/10 aspect-video"
+            src="https://eduardorl.vercel.app/_next/image?url=https%3A%2F%2Fi.imgur.com%2FQ3fyJej.png&w=1080&q=75"
+            alt={`Captura de pantalla del proyecto `}
+          /> -->
+        </div>
+
+        <div class="flex items-center justify-center">
+          <ul class="flex gap-x-2 flex-row mb-2 mt-2">
+            <li>
+              <span
+                class={`flex justify-center items-center gap-[10px] rounded-full text-xs bg-[#003159] text-white py-1 px-3 border border-white/10`}
+              >
+                <ReactIcon fill="#00D8FF" width="16px" height="14px" />
+                React
+              </span>
+            </li>
+            <li>
+              <span
+                class={`flex justify-center items-center gap-[10px] rounded-full text-xs bg-[#025294] text-white py-1 px-3 border border-white/10`}
+              >
+                <TailwindIcon fill="#00D8FF" width="16px" height="14px" />
+                PHP
+              </span>
+            </li>
+            <li>
+              <span
+                class={`flex justify-center items-center gap-[10px] rounded-full text-xs bg-[#003159] text-white py-1 px-3 border border-white/10`}
+              >
+                <ReactIcon fill="#00D8FF" width="16px" height="14px" />
+                MySQL
+              </span>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="contacto">
+      <div
+        class="flex gap-2 items-center mb-5 text-[#4B596D] dark:text-[#DEE4ED]"
+      >
+        <AtIcon width="24px" height="24px" />
+        <h2 class="text-2xl font-bold">Contacto</h2>
+      </div>
+
+      <div class="flex items-center gap-[14px]">
+        <!--         <SimpleButton
+          text="Linkedin"
+          bg_color="#fff"
+          text_color="#0E76A8"
+          dark_bg_color="#0a66c2"
+          dark_text_color="#fff"
+        >
+          <Linkedin width="18px" height="18px" />
+        </SimpleButton> -->
+
+        <!--  <SimpleButton
+          text="GitHub"
+          bg_color="#fff"
+          text_color="#545454"
+          dark_bg_color="#545454"
+          dark_text_color="#fff"
+        >
+          <GitHub width="18px" height="18px" />
+        </SimpleButton> -->
+        <a class="relative" href="#">
+          <span
+            class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-[#545454] dark:bg-gray-700"
+          ></span>
+          <span
+            class="fold-bold relative flex items-center justify-center gap-[14px] h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-[#0E76A8] transition duration-100 hover:text-gray-500 dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black dark:hover:border-[#a8a8a8]"
+          >
+            <Linkedin width="18px" height="18px" />
+            Linkedin
+          </span>
+        </a>
+        <a class="relative" href="#">
+          <span
+            class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-[#545454] dark:bg-gray-700"
+          ></span>
+          <span
+            class="fold-bold relative flex items-center justify-center gap-[14px] h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:text-gray-500 dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black dark:hover:border-[#a8a8a8]"
+          >
+            <GitHub width="18px" height="18px" />
+            GitHub
+          </span>
+        </a>
+      </div>
+
+      <div
+        class="flex gap-2 items-center mb-5 mt-6 text-[#4B596D] dark:text-slate-200"
+      >
+        <Mail width="24px" height="24px" />
+        <h2 class="font-bold text-[#4B596D] dark:text-slate-200">Email</h2>
+      </div>
+
+      <div class="flex gap-2">
+        <Input value="mgomezmu@gmail.com" />
+
+        <div class="flex gap-2">
+          <div class="tooltip">
+            <button
+              onclick="copyFunction()"
+              onmouseout="copyToolTipFunc()"
+              class="h-[38px] text-[#EDCB6F] bg-[#fdf2d3] hover:bg-opacity-80 hover:dark:bg-opacity-90 py-2.5 px-4 rounded-lg flex items-center justify-center dark:bg-[#545454] dark:text-[#FFFFFF]"
+            >
+              <span class="tooltiptext" id="copyTooltip"></span>
+              <Copy width="24px" height="24px" />
+            </button>
+          </div>
+        </div>
+
+        <div class="tooltip">
+          <a
+            onmouseout="sendToolTipFunc()"
+            href="mailto:mgomezmu@gmail.com"
+            target="_blank"
+            class="h-[38px] text-[#EDCB6F] bg-[#FFF2D0] dark:bg-[#C6A54A] dark:text-[#FFFFFF] hover:bg-opacity-80 hover:dark:bg-opacity-90 py-2.5 px-4 rounded-lg flex items-center justify-center"
+            style="box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);"
+          >
+            <span class="tooltiptext" id="sendTooltip"></span>
+            <Send width="24px" height="24px" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
