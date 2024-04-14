@@ -17,84 +17,98 @@ import KeyKnowledge from "../components/KeyKnowledge.astro";
 import AtIcon from "../components/icons/AtIcon.astro";
 import Copy from "../components/icons/Copy.astro";
 import Send from "../components/icons/Send.astro";
+import MySql from "../components/icons/MySql.astro";
 ---
 
 <Layout title="Maikel Gómez - Portfolio">
   <main>
-    <section id="top" class="flex flex-col items-center gap-10 md:flex-row">
+    <section
+      id="top"
+      class="flex w-full flex-col items-center gap-5 md:flex-row md:gap-10"
+    >
       <div>
         <img
           src="/profile.png"
           alt="Maikel Gómez"
-          class="size-40 shadow-lg blackFillProfileImage"
+          class="blackFillProfileImage size-40 shadow-lg"
           style="border: 4px solid #71829B; border-radius: 54px; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);"
         />
 
         <img
           src="/profileInv.png"
           alt="Maikel Gómez"
-          class="size-40 shadow-lg whiteFillProfileImage"
+          class="whiteFillProfileImage size-40 opacity-75 shadow-lg"
           style="border: 4px solid #71829B; border-radius: 54px; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);"
         />
       </div>
 
       <div class="text-center md:text-left">
         <h1
-          class="text-2xl md:text-4xl font-bold text-[#4B596D] dark:text-[#DEE4ED]"
+          class="text-2xl font-bold text-[#4B596D] dark:text-[#DEE4ED] md:text-4xl"
         >
           Maikel Gómez
         </h1>
-        <p class="text-base md:text-lg text-[#8F98A4] dark:text-[#C6D0DC]">
+        <p class="text-base text-[#8F98A4] dark:text-[#818890] md:text-lg">
           Apasionado del desarrollo y diseño de aplicaciones web.
         </p>
 
-        <div class="mt-4 flex flex-col sm:flex-row gap-[10px]">
-          <StyledButton
-            text="Resume"
-            bg_color="#ECECFF"
-            text_color="#807EE3"
-            dark_bg_color="#807EE3"
-            dark_text_color="#ECECFF"
+        <div class="mt-4 flex flex-col gap-[10px] sm:flex-row">
+          <a
+            href="/CV-Maikel-Gomez-Murillo.pdf"
+            download="CV-Maikel-Gomez-Murillo.pdf"
           >
-            <FileUser width="13px" height="15px" />
-          </StyledButton>
-          <StyledButton
-            text="Linkedin"
-            bg_color="#EAF8FF"
-            text_color="#0E76A8"
-            dark_bg_color="#0E76A8"
-            dark_text_color="#EAF8FF"
+            <button
+              class={`px-4 py-2 bg-[#ECECFF]  flex justify-center items-center gap-3 rounded-[7px] text-[#807EE3] text-sm font-semibold hover:bg-[#807EE3] hover:text-[#ECECFF] transition duration-150 dark:hover:bg-[#ECECFF] dark:hover:text-[#807EE3] dark:bg-[#807EE3] dark:text-[#ECECFF]`}
+            >
+              <FileUser width="13px" height="15px" />
+              Resume
+            </button>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/maikel-gomez-murillo/"
+            target="_blank"
           >
-            <Linkedin width="15px" height="15px" />
-          </StyledButton>
-          <StyledButton
-            text="mgomezmu@gmail.com"
-            bg_color="#DEE4ED"
-            text_color="#4B596D"
-            dark_bg_color="#4B596D"
-            dark_text_color="#DEE4ED"
+            <button
+              class={`px-4 py-2 bg-[#EAF8FF]  flex justify-center items-center gap-3 rounded-[7px] text-[#0E76A8] hover:bg-[#0E76A8] hover:text-[#ECECFF]  text-sm font-semibold hover:bg-opacity-75 dark:bg-[#0E76A8] dark:text-[#EAF8FF] transition duration-150 dark:hover:bg-[#ECECFF] dark:hover:text-[#0E76A8] `}
+            >
+              <Linkedin width="15px" height="15px" />
+              Linkedin
+            </button>
+          </a>
+
+          <a
+            onmouseout="sendToolTipFunc()"
+            href="mailto:mgomzmu@gmail.com"
+            target="_blank"
           >
-            <MailFoward width="18px" height="18px" />
-          </StyledButton>
+            <button
+              value="mgomzmu@gmail.com"
+              class={`px-4 py-2 bg-[#DEE4ED]  flex justify-center items-center gap-3 rounded-[7px] text-[#4B596D] text-sm font-semibold hover:bg-opacity-80 hover:bg-[#4B596D] hover:text-[#ECECFF] dark:bg-[#4B596D] dark:text-[#DEE4ED] transition duration-150 dark:hover:bg-[#ECECFF] dark:hover:text-[#000000]`}
+            >
+              <MailFoward width="18px" height="18px" />
+              mgomzmu@gmail.com
+            </button>
+          </a>
         </div>
       </div>
     </section>
 
     <hr
-      class="border border-dotted border-gray-300 dark:border-[#8F98A4] rounded-md mt-14 mb-12"
+      class="mb-12 mt-14 rounded-md border border-dotted border-gray-300 dark:border-[#8F98A4]"
     />
 
     <!-- <section id="experiencia">
-      <div class="flex gap-2 items-center mb-5">
+      <div class="mb-5 flex items-center gap-2">
         <BriefCase fill="#4B596D" width="27px" height="26px" />
         <h2 class="text-2xl font-bold text-[#4B596D]">Experiencia laboral</h2>
       </div>
       <Experience />
     </section> -->
 
-    <section>
+    <section id="sobre-mi" class="w-full">
       <div
-        class="flex gap-2 items-center mb-5 text-[#4B596D] dark:text-gray-100"
+        class="mb-5 flex items-center gap-2 text-[#4B596D] dark:text-gray-100"
       >
         <BriefCase width="27px" height="26px" />
         <h2 class="text-2xl font-bold text-[#4B596D] dark:text-gray-100">
@@ -102,16 +116,27 @@ import Send from "../components/icons/Send.astro";
         </h2>
       </div>
 
-      <p
-        class="text-base sm:text-lg text-[#384247] font-medium text-pretty dark:text-slate-200"
+      <!--       <p
+        class="text-pretty text-base font-medium text-[#384247] dark:text-slate-200 sm:text-lg"
       >
-        Estudiante apasionado de Ingeniería del Software, a punto de completar
-        su bachillerato, con enfoque en el emocionante mundo del diseño y
+        Estudiante de Ingeniería del Software, a punto de completar su
+        bachillerato, con enfoque en el emocionante mundo del diseño y
         desarrollo de aplicaciones web.
+      </p> -->
+      <p
+        class="text-pretty text-base font-medium text-[#384247] dark:text-slate-300 sm:text-lg"
+      >
+        Estudiante a punto de terminar el bachillerato en Ingeniería del
+        Software, con un enfoque destacado en el desarrollo Frontend y el diseño
+        web. A lo largo de mi carrera académica, he explorado diversas áreas
+        relacionadas con el desarrollo web y el diseño. Si bien mi enfoque
+        principal es el desarrollo Frontend, también disfruto y tengo
+        habilidades en el desarrollo Backend.
       </p>
+      <br />
 
       <h3
-        class="text-lg text-[#4B596D] font-bold pt-2 mb-4 dark:text-[#C6D0DC]"
+        class="mb-4 pt-2 text-lg font-bold text-[#647690] dark:text-[#ececec]"
       >
         Conocimientos clave:
       </h3>
@@ -119,9 +144,9 @@ import Send from "../components/icons/Send.astro";
       <KeyKnowledge />
     </section>
 
-    <section id="proyectos" class="mb-8">
+    <section id="proyectos" class="mb-8 w-full">
       <div
-        class="flex gap-2 items-center mb-5 text-[#4B596D] dark:text-gray-100"
+        class="mb-5 flex items-center gap-2 text-[#4B596D] dark:text-gray-100"
       >
         <CodeIcon width="27px" height="26px" />
         <h2 class="text-2xl font-bold text-[#4B596D] dark:text-gray-100">
@@ -131,28 +156,21 @@ import Send from "../components/icons/Send.astro";
 
       <article>
         <h3
-          class="text-xl md:text-2xl text-[#8F5C23] font-bold pb-1 dark:text-[#D3B76B]"
+          class="pb-1 text-xl font-bold text-[#8F5C23] dark:text-[#D3B76B] md:text-2xl"
         >
           DentAid - Aplicación web para la gestión de citas
         </h3>
         <p
-          class="text-base md:text-lg text-[#384247] font-medium text-pretty dark:text-[#C6D0DC]"
+          class="text-pretty text-base font-medium text-[#384247] dark:text-[#C6D0DC] md:text-lg"
         >
           Creado con React, PHP y MySQL esta pagina web gestiona citas para una
           clinica dental.
         </p>
 
-        <div class="mt-2 box_image">
-          <!--           <img
-            loading="lazy"
-            class="rounded shadow-2xl shadow-white/10 aspect-video"
-            src="https://eduardorl.vercel.app/_next/image?url=https%3A%2F%2Fi.imgur.com%2FQ3fyJej.png&w=1080&q=75"
-            alt={`Captura de pantalla del proyecto `}
-          /> -->
-        </div>
+        <div class="box_image mt-2"></div>
 
         <div class="flex items-center justify-center">
-          <ul class="flex gap-x-2 flex-row mb-2 mt-2">
+          <ul class="mb-2 mt-2 flex flex-row gap-x-2">
             <li>
               <span
                 class={`flex justify-center items-center gap-[10px] rounded-full text-xs bg-[#003159] text-white py-1 px-3 border border-white/10`}
@@ -171,9 +189,9 @@ import Send from "../components/icons/Send.astro";
             </li>
             <li>
               <span
-                class={`flex justify-center items-center gap-[10px] rounded-full text-xs bg-[#003159] text-white py-1 px-3 border border-white/10`}
+                class={`flex justify-center items-center gap-[10px] rounded-full text-xs bg-[#F29111] text-white py-1 px-3 border border-white/10`}
               >
-                <ReactIcon fill="#00D8FF" width="16px" height="14px" />
+                <MySql fill="#00758F" width="16px" height="14px" />
                 MySQL
               </span>
             </li>
@@ -182,40 +200,21 @@ import Send from "../components/icons/Send.astro";
       </article>
     </section>
 
-    <section id="contacto">
+    <section id="contacto" class="">
       <div
-        class="flex gap-2 items-center mb-5 text-[#4B596D] dark:text-[#DEE4ED]"
+        class="mb-5 flex items-center gap-2 text-[#4B596D] dark:text-[#DEE4ED]"
       >
         <AtIcon width="24px" height="24px" />
         <h2 class="text-2xl font-bold">Contacto</h2>
       </div>
 
-      <div class="flex items-center gap-[14px]">
-        <!--         <SimpleButton
-          text="Linkedin"
-          bg_color="#fff"
-          text_color="#0E76A8"
-          dark_bg_color="#0a66c2"
-          dark_text_color="#fff"
-        >
-          <Linkedin width="18px" height="18px" />
-        </SimpleButton> -->
-
-        <!--  <SimpleButton
-          text="GitHub"
-          bg_color="#fff"
-          text_color="#545454"
-          dark_bg_color="#545454"
-          dark_text_color="#fff"
-        >
-          <GitHub width="18px" height="18px" />
-        </SimpleButton> -->
+      <div class="flex gap-[14px]">
         <a class="relative" href="#">
           <span
-            class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-[#545454] dark:bg-gray-700"
+            class="absolute left-0 top-0 ml-1 mt-1 h-full w-full rounded bg-[#545454] dark:bg-gray-700"
           ></span>
           <span
-            class="fold-bold relative flex items-center justify-center gap-[14px] h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-[#0E76A8] transition duration-100 hover:text-gray-500 dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black dark:hover:border-[#a8a8a8]"
+            class="fold-bold relative flex h-full w-full items-center justify-center gap-[14px] rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-[#0E76A8] transition duration-300 hover:text-gray-500 dark:bg-black dark:text-white dark:hover:border-[#a8a8a8] dark:hover:bg-white dark:hover:text-black"
           >
             <Linkedin width="18px" height="18px" />
             Linkedin
@@ -223,10 +222,10 @@ import Send from "../components/icons/Send.astro";
         </a>
         <a class="relative" href="#">
           <span
-            class="absolute top-0 left-0 mt-1 ml-1 h-full w-full rounded bg-[#545454] dark:bg-gray-700"
+            class="absolute left-0 top-0 ml-1 mt-1 h-full w-full rounded bg-[#545454] dark:bg-gray-700"
           ></span>
           <span
-            class="fold-bold relative flex items-center justify-center gap-[14px] h-full w-full rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-100 hover:text-gray-500 dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black dark:hover:border-[#a8a8a8]"
+            class="fold-bold relative flex h-full w-full items-center justify-center gap-[14px] rounded border-2 border-black bg-white px-3 py-1 text-base font-bold text-black transition duration-300 hover:text-gray-500 dark:bg-black dark:text-white dark:hover:border-[#a8a8a8] dark:hover:bg-white dark:hover:text-black"
           >
             <GitHub width="18px" height="18px" />
             GitHub
@@ -235,39 +234,38 @@ import Send from "../components/icons/Send.astro";
       </div>
 
       <div
-        class="flex gap-2 items-center mb-5 mt-6 text-[#4B596D] dark:text-slate-200"
+        class="mb-5 mt-6 flex items-center gap-2 text-[#4B596D] dark:text-slate-200"
       >
         <Mail width="24px" height="24px" />
         <h2 class="font-bold text-[#4B596D] dark:text-slate-200">Email</h2>
       </div>
 
-      <div class="flex gap-2">
-        <Input value="mgomezmu@gmail.com" />
+      <div class="flex w-auto gap-2">
+        <Input value="mgomzmu@gmail.com" />
 
         <div class="flex gap-2">
-          <div class="tooltip">
+          <div class="tooltip w-auto">
             <button
               onclick="copyFunction()"
               onmouseout="copyToolTipFunc()"
-              class="h-[38px] text-[#EDCB6F] bg-[#fdf2d3] hover:bg-opacity-80 hover:dark:bg-opacity-90 py-2.5 px-4 rounded-lg flex items-center justify-center dark:bg-[#545454] dark:text-[#FFFFFF]"
+              class="flex h-[38px] items-center justify-center rounded-lg bg-[#fdf2d3] px-4 py-2.5 text-[#EDCB6F] hover:bg-[#C6A54A] hover:text-white dark:bg-[#545454] dark:text-[#FFFFFF] hover:dark:bg-opacity-90"
             >
               <span class="tooltiptext" id="copyTooltip"></span>
-              <Copy width="24px" height="24px" />
+              <Copy width="22px" height="22px" />
             </button>
           </div>
-        </div>
-
-        <div class="tooltip">
-          <a
-            onmouseout="sendToolTipFunc()"
-            href="mailto:mgomezmu@gmail.com"
-            target="_blank"
-            class="h-[38px] text-[#EDCB6F] bg-[#FFF2D0] dark:bg-[#C6A54A] dark:text-[#FFFFFF] hover:bg-opacity-80 hover:dark:bg-opacity-90 py-2.5 px-4 rounded-lg flex items-center justify-center"
-            style="box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);"
-          >
-            <span class="tooltiptext" id="sendTooltip"></span>
-            <Send width="24px" height="24px" />
-          </a>
+          <div class="tooltip w-auto">
+            <a
+              onmouseout="sendToolTipFunc()"
+              href="mailto:mgomzmu@gmail.com"
+              target="_blank"
+              class="flex h-[38px] items-center justify-center rounded-lg bg-[#FFF2D0] px-4 py-2.5 text-[#EDCB6F] transition duration-200 ease-in-out hover:bg-[#ae814d] hover:text-white dark:bg-[#C6A54A] dark:text-[#FFFFFF] hover:dark:bg-opacity-90"
+              style="box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);"
+            >
+              <span class="tooltiptext" id="sendTooltip"></span>
+              <Send width="22px" height="22px" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -7,13 +7,12 @@ interface Props {
   dark_text_color: string;
 }
 
-
 const { text, bg_color, text_color, dark_bg_color, dark_text_color } =
   Astro.props;
 ---
 
 <button
-  class={`px-4 py-2 bg-[${bg_color}]  flex justify-center items-center gap-3 rounded-[7px] text-[${text_color}] text-sm font-semibold hover:bg-opacity-80 dark:bg-[${dark_bg_color}] dark:text-[${dark_text_color}]  `}
+  class={`px-4 py-2 ${bg_color}  flex justify-center items-center gap-3 rounded-[7px] ${text_color} text-sm font-semibold hover:bg-opacity-80 dark:${dark_bg_color} dark:${dark_text_color}`}
 >
   <slot />
   {text}

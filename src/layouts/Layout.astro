@@ -17,15 +17,135 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/profile.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-white mx-auto max-w-3xl px-5 dark:bg-[#171E2D]">
-    <Header />
-    <slot />
+  <body
+    class="inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] mx-auto max-w-3xl px-5 dark:bg-[#171E2D]"
+  >
+    <div class="">
+      <Header />
+      <slot />
+    </div>
+
+    <!--     <script is:inline src="/js/script.js"></script>
+    <script src="/src/js/script.js"></script> -->
+    <script is:inline>
+      function copyFunction() {
+        var copyText = document.getElementById("myInput");
+        navigator.clipboard.writeText(copyText.value);
+
+        var tooltip = document.getElementById("copyTooltip");
+        tooltip.innerHTML = "Copiado";
+      }
+
+      function copyToolTipFunc() {
+        var tooltip = document.getElementById("copyTooltip");
+        tooltip.innerHTML = "Copiar";
+      }
+      function sendToolTipFunc() {
+        var tool = document.getElementById("sendTooltip");
+        tool.innerHTML = "Enviar";
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Verifica si la resolución de la pantalla es de escritorio
+        var isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+
+        // Si es de escritorio, aplica el código para el nav
+        if (isDesktop) {
+          var scrollNav = document.getElementById("scrollNav");
+
+          window.addEventListener("scroll", function () {
+            // Verifica si el scroll es mayor a 200px (ajusta según tus necesidades)
+            if (window.scrollY > 200) {
+              scrollNav.style.transform = "translateY(0)";
+            } else {
+              scrollNav.style.transform = "translateY(-400%)";
+              scrollNav.classList.add = "hidden";
+            }
+          });
+        }
+      });
+
+      /* Dark - Light mode */
+
+      //icons
+      const sunIcon = document.querySelector(".sun");
+      const moonIcon = document.querySelector(".moon");
+
+      const blackFillProfileImage = document.querySelector(
+        ".blackFillProfileImage"
+      );
+      const whiteFillProfileImage = document.querySelector(
+        ".whiteFillProfileImage"
+      );
+      //theme vars
+      const userTheme = localStorage.getItem("theme");
+      const systemTheme = window.matchMedia(
+        "(prefers-color-schema: dark)"
+      ).matches;
+
+      //icon toggling
+      const iconToggle = () => {
+        moonIcon.classList.toggle("display-none");
+        sunIcon.classList.toggle("display-none");
+
+        whiteFillProfileImage.classList.toggle("display-none");
+        blackFillProfileImage.classList.toggle("display-none");
+      };
+
+      // Initial Theme check
+      const themeCheck = () => {
+        if (userTheme === "dark" || (!userTheme && systemTheme)) {
+          document.documentElement.classList.add("dark");
+
+          moonIcon.classList.add("display-none");
+          blackFillProfileImage.classList.add("display-none");
+
+          return;
+        }
+        sunIcon.classList.add("display-none");
+        whiteFillProfileImage.classList.add("display-none");
+      };
+
+      // Manual Theme Switch
+
+      const themeSwitch = () => {
+        if (document.documentElement.classList.contains("dark")) {
+          console.log("Changing to Light Theme");
+          // Cambiar a tema claro
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+          iconToggle();
+          /*     blackFillProfileImage.classList.remove("block");
+    blackFillProfileImage.classList.add("hidden"); */
+          return;
+        }
+        console.log("Changing to Dark Theme");
+        // Cambiar a tema oscuro
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        iconToggle();
+
+        /*   whiteFillProfileImage.classList.add("block");
+  whiteFillProfileImage.classList.remove("hidden"); */
+      };
+
+      // call theme switch on clicking buttons
+      sunIcon.addEventListener("click", () => {
+        themeSwitch();
+      });
+
+      moonIcon.addEventListener("click", () => {
+        themeSwitch();
+      });
+
+      // invoke theme check on initial load
+      themeCheck();
+    </script>
   </body>
-  <script is:inline src="/src/js/script.js"></script>
 </html>
 <style is:global>
   :root {
@@ -33,6 +153,7 @@ const { title } = Astro.props;
   html {
     font-family: "Plus Jakarta Sans Variable", sans-serif;
     scroll-behavior: smooth;
+    box-sizing: border-box;
   }
 
   body {
@@ -51,19 +172,20 @@ const { title } = Astro.props;
 
   .tooltip .tooltiptext {
     visibility: hidden;
-    width: 140px;
+    width: max-content; /* Hacer el ancho flexible */
     background-color: #555;
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 5px;
+    padding: 3px 5px;
     position: absolute;
     z-index: 1;
-    bottom: 150%;
+    bottom: 125%; /* Ajustar la posición según sea necesario */
     left: 50%;
-    margin-left: -75px;
+    transform: translateX(-50%); /* Mejorar el centrado horizontal */
     opacity: 0;
     transition: opacity 0.3s;
+    font-size: 0.8rem;
   }
 
   .tooltip .tooltiptext::after {
@@ -84,7 +206,7 @@ const { title } = Astro.props;
 
   #scrollNav {
     transition: transform 0.3s ease-in-out;
-    transform: translateY(-200%);
+    transform: translateY(-400%);
   }
 
   @tailwind base;
@@ -101,7 +223,7 @@ const { title } = Astro.props;
     background-position: top;
     background-color: black;
     transition: ease-in-out 8s;
-    background: url("/proyecto.png");
+    background: url("/dentAid.png");
     background-size: cover;
   }
   .box_image:hover {

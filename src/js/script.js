@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
       if (window.scrollY > 200) {
         scrollNav.style.transform = "translateY(0)";
       } else {
-        scrollNav.style.transform = "translateY(-200%)";
+        scrollNav.style.transform = "translateY(-400%)";
+        scrollNav.classList.add = "hidden";
       }
     });
   }
@@ -60,12 +61,6 @@ const themeCheck = () => {
   if (userTheme === "dark" || (!userTheme && systemTheme)) {
     document.documentElement.classList.add("dark");
 
-    /*     blackFillProfileImage.classList.add("hidden");
-    blackFillProfileImage.classList.remove("block");
-
-    whiteFillProfileImage.classList.add("block");
-    whiteFillProfileImage.classList.remove("hidden"); */
-
     moonIcon.classList.add("display-none");
     blackFillProfileImage.classList.add("display-none");
 
@@ -73,12 +68,6 @@ const themeCheck = () => {
   }
   sunIcon.classList.add("display-none");
   whiteFillProfileImage.classList.add("display-none");
-
-  /*   blackFillProfileImage.classList.add("block");
-  blackFillProfileImage.classList.remove("hidden");
-
-  whiteFillProfileImage.classList.add("hidden");
-  whiteFillProfileImage.classList.remove("block"); */
 };
 
 // Manual Theme Switch
